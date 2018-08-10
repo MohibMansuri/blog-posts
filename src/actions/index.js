@@ -17,10 +17,9 @@ export function fetchPosts() {
   };
 }
 
-export function createPosts(values, cb) {
+export function createPosts(values) {
   const url = `${ROOT_URL}?key=${API_KEY}`;
-  const response = axios.post(url, values).then(() => {cb();});
-
+  const response = axios.post(url, values);
   return {
     type: CREATE_POSTS,
     payload: response
@@ -37,10 +36,9 @@ export function fetchPost(id) {
   };
 }
 
-export function deletePost(id, cb) {
+export function deletePost(id) {
   const url = `${ROOT_URL}/${id}?key=${API_KEY}`;
-  const response = axios.delete(url).then(() => {cb();});
-
+  const response = axios.delete(url);
   return {
     type: DELETE_POST,
     payload: id
